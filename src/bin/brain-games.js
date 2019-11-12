@@ -1,7 +1,5 @@
 #!/usr/local/bin/node
-import name from '../index';
+import { welcome, yourName } from '..';
 
-console.log('Welcome to the Brain Games!');
-
-const yourName = name();
-console.log(`Hi, ${yourName}!`);
+welcome();
+yourName();

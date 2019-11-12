@@ -1,10 +1,11 @@
 {
   "name": "project1",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "project1 frontend",
   "main": "index.js",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"
@@ -18,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/chulietta/frontend-project-lvl1.git"
   },
-  "author": "",
+  "author": "Julia",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chulietta/frontend-project-lvl1/issues"
