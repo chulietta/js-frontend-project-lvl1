@@ -1,10 +1,10 @@
 #!/usr/local/bin/node
 import {
   welcome,
-  letsPlayEven,
-  game,
+  letsPlayCalc,
+  calc,
 } from '..';
 
 welcome();
-letsPlayEven();
-game();
+letsPlayCalc();
+calc();
