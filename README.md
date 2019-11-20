@@ -19,4 +19,6 @@
 
 [![asciicast](https://asciinema.org/a/9mTQifRLuZ3X3TR91g9hbhb5J.png)](https://asciinema.org/a/9mTQifRLuZ3X3TR91g9hbhb5J)
 
+Игра "НОД"
 
+[![asciicast](https://asciinema.org/a/SF0iH1I1iiqgrqQldZTEZlxkS.png)](https://asciinema.org/a/SF0iH1I1iiqgrqQldZTEZlxkS)
