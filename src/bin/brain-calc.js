@@ -1,10 +1,4 @@
 #!/usr/local/bin/node
-import {
-  welcome,
-  letsPlayCalc,
-  calc,
-} from '..';
+import gameCalc from '../games/calcGame';
 
-welcome();
-letsPlayCalc();
-calc();
+gameCalc();

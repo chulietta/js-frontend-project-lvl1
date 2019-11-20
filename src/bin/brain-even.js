@@ -1,10 +1,4 @@
 #!/usr/local/bin/node
-import {
-  welcome,
-  letsPlayEven,
-  game,
-} from '..';
+import gameEven from '../games/evenGame';
 
-welcome();
-letsPlayEven();
-game();
+gameEven();
