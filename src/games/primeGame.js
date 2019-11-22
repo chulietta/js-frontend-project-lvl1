@@ -11,9 +11,9 @@ const isPrime = (number) => {
 };
 
 const inputData = () => {
-  const questionNumber = randomNumber(1, 99);
-  console.log(`Question: ${questionNumber}`);
-  return isPrime(questionNumber);
+  const question = randomNumber(1, 99);
+  console.log(`Question: ${question}`);
+  return isPrime(question);
 };
 
 const getAnswer = () => readlineSync.question('Your answer: ');
