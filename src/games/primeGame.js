@@ -4,6 +4,9 @@ import { randomNumber, bigGame } from '..';
 
 const task = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
+const startOfRandoms = 1;
+const endOfRandoms = 99;
+
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) return 'no';
@@ -11,7 +14,7 @@ const isPrime = (number) => {
 };
 
 const inputData = () => {
-  const question = randomNumber(1, 99);
+  const question = randomNumber(startOfRandoms, endOfRandoms);
   console.log(`Question: ${question}`);
   return isPrime(question);
 };
