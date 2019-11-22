@@ -1,20 +1,27 @@
 import readlineSync from 'readline-sync';
 
-import { randomNumber, randomSymbol, bigGame } from '..';
+import {
+  randomNumber,
+  randomSymbol,
+  bigGame,
+}
+  from '..';
 
-const task = 'What is the result of the expression?';
+const mission = 'What is the result of the expression?';
+const min = 1;
+const max = 99;
 
-const solution = (firstNumber, secondNumber, randomOperator) => {
-  if (randomOperator === '+') {
+const solution = (firstNumber, secondNumber, randomFunction) => {
+  if (randomFunction === '+') {
     return firstNumber + secondNumber;
-  } if (randomOperator === '-') {
+  } if (randomFunction === '-') {
     return firstNumber - secondNumber;
   } return firstNumber * secondNumber;
 };
 
-const inputData = () => {
-  const firstNumber = randomNumber(1, 99);
-  const secondNumber = randomNumber(1, 99);
+const gameInfo = () => {
+  const firstNumber = randomNumber(min, max);
+  const secondNumber = randomNumber(min, max);
   const randomFunction = randomSymbol('+-*');
   const questionExpression = `${firstNumber} ${randomFunction} ${secondNumber}`;
   console.log(`Question: ${questionExpression}`);
@@ -23,4 +30,4 @@ const inputData = () => {
 
 const getAnswer = () => readlineSync.question('Your answer: ');
 
-export default () => bigGame(task, inputData, getAnswer);
+export default () => bigGame(mission, gameInfo, getAnswer);

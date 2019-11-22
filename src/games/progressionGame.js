@@ -1,15 +1,23 @@
 import readlineSync from 'readline-sync';
 
-import { randomNumber, bigGame } from '..';
+import {
+  randomNumber,
+  bigGame,
+}
+  from '..';
 
-const task = 'What number is missing in the progression?';
+const mission = 'What number is missing in the progression?';
+const min = 1;
+const max = 15;
+const minIndexOfHiddenElement = 0;
+const questionExpressionLength = 10;
 
 const inputData = () => {
-  const firstNumber = randomNumber(1, 9);
-  const step = randomNumber(1, 9);
-  const indexOfHiddenElement = randomNumber(1, 9);
+  const firstNumber = randomNumber(min, max);
+  const step = randomNumber(min, max);
+  const indexOfHiddenElement = randomNumber(minIndexOfHiddenElement, questionExpressionLength - 1);
   const arr = [];
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < questionExpressionLength; i += 1) {
     if (i === indexOfHiddenElement) {
       arr[i] = '..';
     } else arr[i] = firstNumber + (step * i);
@@ -20,4 +28,4 @@ const inputData = () => {
 
 const getAnswer = () => readlineSync.question('Your answer: ');
 
-export default () => bigGame(task, inputData, getAnswer);
+export default () => bigGame(mission, inputData, getAnswer);

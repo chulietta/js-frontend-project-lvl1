@@ -1,11 +1,14 @@
 import readlineSync from 'readline-sync';
 
-import { randomNumber, bigGame } from '..';
+import {
+  randomNumber,
+  bigGame,
+}
+  from '..';
 
-const task = 'Answer "yes" if given number is prime. Otherwise answer "no"';
-
-const startOfRandoms = 1;
-const endOfRandoms = 99;
+const mission = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+const min = 1;
+const max = 99;
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
@@ -13,12 +16,12 @@ const isPrime = (number) => {
   } return 'yes';
 };
 
-const inputData = () => {
-  const question = randomNumber(startOfRandoms, endOfRandoms);
+const gameInfo = () => {
+  const question = randomNumber(min, max);
   console.log(`Question: ${question}`);
   return isPrime(question);
 };
 
 const getAnswer = () => readlineSync.question('Your answer: ');
 
-export default () => bigGame(task, inputData, getAnswer);
+export default () => bigGame(mission, gameInfo, getAnswer);
