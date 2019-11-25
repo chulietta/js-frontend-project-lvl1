@@ -12,11 +12,17 @@ const min = 1;
 const max = 99;
 
 const solution = (firstNumber, secondNumber, randomFunction) => {
-  if (randomFunction === '+') {
-    return firstNumber + secondNumber;
-  } if (randomFunction === '-') {
-    return firstNumber - secondNumber;
-  } return firstNumber * secondNumber;
+  let result = 0;
+  switch (randomFunction) {
+    case '+':
+      result = firstNumber + secondNumber;
+      break;
+    case '-':
+      result = firstNumber - secondNumber;
+      break;
+    default:
+      result = firstNumber * secondNumber;
+  } return result;
 };
 
 const gameInfo = () => {
