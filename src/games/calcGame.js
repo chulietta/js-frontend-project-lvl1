@@ -25,10 +25,12 @@ const solution = (firstNumber, secondNumber, randomFunction) => {
   } return result;
 };
 
+const operators = '+-*';
+
 const gameInfo = () => {
   const firstNumber = randomNumber(min, max);
   const secondNumber = randomNumber(min, max);
-  const randomFunction = randomSymbol('+-*');
+  const randomFunction = randomSymbol(operators);
   const questionExpression = `${firstNumber} ${randomFunction} ${secondNumber}`;
   console.log(`Question: ${questionExpression}`);
   return solution(firstNumber, secondNumber, randomFunction).toString();
