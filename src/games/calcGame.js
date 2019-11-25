@@ -2,7 +2,6 @@ import readlineSync from 'readline-sync';
 
 import {
   randomNumber,
-  randomSymbol,
   bigGame,
 }
   from '..';
@@ -12,17 +11,16 @@ const min = 1;
 const max = 99;
 
 const solution = (firstNumber, secondNumber, randomFunction) => {
-  let result = 0;
   switch (randomFunction) {
     case '+':
-      result = firstNumber + secondNumber;
-      break;
+      return firstNumber + secondNumber;
     case '-':
-      result = firstNumber - secondNumber;
-      break;
+      return firstNumber - secondNumber;
+    case '*':
+      return firstNumber * secondNumber;
     default:
-      result = firstNumber * secondNumber;
-  } return result;
+      return false;
+  }
 };
 
 const operators = '+-*';
@@ -30,7 +28,7 @@ const operators = '+-*';
 const gameInfo = () => {
   const firstNumber = randomNumber(min, max);
   const secondNumber = randomNumber(min, max);
-  const randomFunction = randomSymbol(operators);
+  const randomFunction = operators[randomNumber(0, operators.length - 1)];
   const questionExpression = `${firstNumber} ${randomFunction} ${secondNumber}`;
   console.log(`Question: ${questionExpression}`);
   return solution(firstNumber, secondNumber, randomFunction).toString();

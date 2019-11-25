@@ -12,6 +12,8 @@ const max = 99;
 
 const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
+// const isEven = (number) => number % 2 === 0;
+
 const gameInfo = () => {
   const question = randomNumber(min, max);
   console.log(`Question: ${question}`);
