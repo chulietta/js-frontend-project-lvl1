@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-
+import { cons } from '@hexlet/pairs';
 import {
   randomNumber,
   bigGame,
@@ -10,17 +9,18 @@ const mission = 'What is the result of the expression?';
 const min = 1;
 const max = 99;
 
-const solution = (firstNumber, secondNumber, randomFunction) => {
-  switch (randomFunction) {
+const solution = (a, fn, b) => {
+  let result;
+  switch (fn) {
     case '+':
-      return firstNumber + secondNumber;
+      result = a + b;
+      break;
     case '-':
-      return firstNumber - secondNumber;
-    case '*':
-      return firstNumber * secondNumber;
+      result = a - b;
+      break;
     default:
-      return false;
-  }
+      result = a * b;
+  } return result;
 };
 
 const operators = '+-*';
@@ -30,10 +30,9 @@ const gameInfo = () => {
   const secondNumber = randomNumber(min, max);
   const randomFunction = operators[randomNumber(0, operators.length - 1)];
   const questionExpression = `${firstNumber} ${randomFunction} ${secondNumber}`;
-  console.log(`Question: ${questionExpression}`);
-  return solution(firstNumber, secondNumber, randomFunction).toString();
+  const getCorrectAnswer = solution(firstNumber, randomFunction, secondNumber);
+  const correctAnswer = getCorrectAnswer.toString();
+  return cons(questionExpression, correctAnswer);
 };
 
-const getAnswer = () => readlineSync.question('Your answer: ');
-
-export default () => bigGame(mission, gameInfo, getAnswer);
+export default () => bigGame(mission, gameInfo);

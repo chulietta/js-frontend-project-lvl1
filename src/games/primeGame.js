@@ -1,4 +1,4 @@
-import readlineSync from 'readline-sync';
+import { cons } from '@hexlet/pairs';
 
 import {
   randomNumber,
@@ -12,16 +12,16 @@ const max = 99;
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) return 'no';
-  } return 'yes';
+    if (number % i === 0) return false;
+  } return true;
 };
+
+const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
 
 const gameInfo = () => {
-  const question = randomNumber(min, max);
-  console.log(`Question: ${question}`);
-  return isPrime(question);
+  const questionNumber = randomNumber(min, max);
+  const correctAnswer = getCorrectAnswer(questionNumber);
+  return cons(questionNumber, correctAnswer);
 };
 
-const getAnswer = () => readlineSync.question('Your answer: ');
-
-export default () => bigGame(mission, gameInfo, getAnswer);
+export default () => bigGame(mission, gameInfo);

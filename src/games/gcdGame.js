@@ -1,4 +1,4 @@
-import readlineSync from 'readline-sync';
+import { cons } from '@hexlet/pairs';
 
 import {
   randomNumber,
@@ -25,10 +25,9 @@ const gameInfo = () => {
   const firstNumber = randomNumber(min, max);
   const secondNumber = randomNumber(min, max);
   const questionExpression = `${firstNumber} ${secondNumber}`;
-  console.log(`Question: ${questionExpression}`);
-  return solution(firstNumber, secondNumber).toString();
+  const getCorrectAnswer = solution(firstNumber, secondNumber);
+  const correctAnswer = getCorrectAnswer.toString();
+  return cons(questionExpression, correctAnswer);
 };
 
-const getAnswer = () => readlineSync.question('Your answer: ');
-
-export default () => bigGame(mission, gameInfo, getAnswer);
+export default () => bigGame(mission, gameInfo);

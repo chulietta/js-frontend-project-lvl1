@@ -37,6 +37,7 @@
     "@babel/preset-env": "^7.6.2"
   },
   "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",

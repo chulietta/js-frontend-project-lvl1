@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-
+import { cons } from '@hexlet/pairs';
 import {
   randomNumber,
   bigGame,
@@ -10,16 +9,14 @@ const mission = 'Answer "yes" if the number is even, otherwise answer "no".';
 const min = 1;
 const max = 99;
 
-const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
+const isEven = (number) => number % 2 === 0;
 
-// const isEven = (number) => number % 2 === 0;
+const getCorrectAnswer = (question) => (isEven(question) ? 'yes' : 'no');
 
 const gameInfo = () => {
-  const question = randomNumber(min, max);
-  console.log(`Question: ${question}`);
-  return isEven(question);
+  const questionNumber = randomNumber(min, max);
+  const correctAnswer = getCorrectAnswer(questionNumber);
+  return cons(questionNumber, correctAnswer);
 };
 
-const getAnswer = () => readlineSync.question('Your answer: ');
-
-export default () => bigGame(mission, gameInfo, getAnswer);
+export default () => bigGame(mission, gameInfo);
