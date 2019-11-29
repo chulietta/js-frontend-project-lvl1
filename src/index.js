@@ -8,18 +8,23 @@ const numberOfCorrectAnswers = 3;
 export const startBigGame = (mission, gameInfo) => {
   console.log(`Welcome to the Brain Games!\n${mission}\n`);
   const playerName = readlineSync.question('May I have your name? ');
+  const congratulationMessage = `Congratulations, ${playerName}!`;
   console.log(`Hello, ${playerName}!\n`);
+
   for (let i = 0; i < numberOfCorrectAnswers; i += 1) {
     const questionAndAnswer = gameInfo();
     const question = car(questionAndAnswer);
     const correctAnswer = cdr(questionAndAnswer);
     console.log(`Question: ${question}`);
     const playerAnswer = readlineSync.question('Your answer: ');
+
     if (playerAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
       console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`);
       return;
     }
-  } console.log(`Congratulations, ${playerName}!`);
+  }
+  console.log(`${congratulationMessage}`);
+  return congratulationMessage;
 };
