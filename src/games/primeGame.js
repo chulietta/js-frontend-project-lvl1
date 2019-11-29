@@ -1,7 +1,7 @@
 import { cons } from '@hexlet/pairs';
 
 import {
-  randomNumber,
+  randomNum,
   startBigGame,
 }
   from '..';
@@ -10,18 +10,18 @@ const mission = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 const min = 1;
 const max = 99;
 
-const isPrime = (number) => {
-  for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) return false;
+const isPrime = (num) => {
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) return false;
   } return true;
 };
 
 const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
 
 const getGameData = () => {
-  const questionNum = randomNumber(min, max);
-  const correctAnswer = getCorrectAnswer(questionNum);
-  return cons(questionNum, correctAnswer);
+  const question = randomNum(min, max);
+  const correctAnswer = getCorrectAnswer(question);
+  return cons(question, correctAnswer);
 };
 
 export default () => startBigGame(mission, getGameData);

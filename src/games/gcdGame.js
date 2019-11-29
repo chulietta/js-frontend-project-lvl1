@@ -1,7 +1,7 @@
 import { cons } from '@hexlet/pairs';
 
 import {
-  randomNumber,
+  randomNum,
   startBigGame,
 }
   from '..';
@@ -12,8 +12,8 @@ const max = 99;
 
 const getSolution = (x, y) => {
   let greatestCommonDivider = 0;
-  const minNumber = (x > y) ? y : x;
-  for (let i = minNumber; i > 0; i -= 1) {
+  const minNum = (x > y) ? y : x;
+  for (let i = minNum; i > 0; i -= 1) {
     if ((x % i === 0) && (y % i === 0)) {
       greatestCommonDivider = i;
       break;
@@ -22,12 +22,11 @@ const getSolution = (x, y) => {
 };
 
 const getGameData = () => {
-  const firstNum = randomNumber(min, max);
-  const secondNum = randomNumber(min, max);
-  const questionExpression = `${firstNum} ${secondNum}`;
-  const correctAnswer = getSolution(firstNum, secondNum);
-  const correctAnswerString = correctAnswer.toString();
-  return cons(questionExpression, correctAnswerString);
+  const firstNum = randomNum(min, max);
+  const secondNum = randomNum(min, max);
+  const question = `${firstNum} ${secondNum}`;
+  const correctAnswer = (getSolution(firstNum, secondNum)).toString();
+  return cons(question, correctAnswer);
 };
 
 export default () => startBigGame(mission, getGameData);

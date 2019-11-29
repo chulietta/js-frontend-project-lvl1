@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import {
-  randomNumber,
+  randomNum,
   startBigGame,
 }
   from '..';
@@ -12,9 +12,9 @@ const max = 99;
 const isEven = (num) => num % 2 === 0;
 
 const getGameData = () => {
-  const questionNum = randomNumber(min, max);
-  const correctAnswer = isEven(questionNum) ? 'yes' : 'no';
-  return cons(questionNum, correctAnswer);
+  const question = randomNum(min, max);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  return cons(question, correctAnswer);
 };
 
 export default () => startBigGame(mission, getGameData);
