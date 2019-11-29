@@ -5,7 +5,7 @@ export const randomNumber = (min, max) => Math.floor((Math.random() * (max - min
 
 const numberOfCorrectAnswers = 3;
 
-export const bigGame = (mission, gameInfo) => {
+export const startBigGame = (mission, gameInfo) => {
   console.log(`Welcome to the Brain Games!\n${mission}\n`);
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!\n`);

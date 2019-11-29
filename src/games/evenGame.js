@@ -1,7 +1,7 @@
 import { cons } from '@hexlet/pairs';
 import {
   randomNumber,
-  bigGame,
+  startBigGame,
 }
   from '..';
 
@@ -17,4 +17,4 @@ const getGameData = () => {
   return cons(questionNum, correctAnswer);
 };
 
-export default () => bigGame(mission, getGameData);
+export default () => startBigGame(mission, getGameData);
