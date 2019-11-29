@@ -10,24 +10,24 @@ const mission = 'Find the greatest common divisor of given numbers.';
 const min = 1;
 const max = 99;
 
-const solution = (firstNumber, secondNumber) => {
-  let nod = 0;
-  const minNumber = (firstNumber > secondNumber) ? secondNumber : firstNumber;
+const getSolution = (x, y) => {
+  let greatestCommonDivider = 0;
+  const minNumber = (x > y) ? y : x;
   for (let i = minNumber; i > 0; i -= 1) {
-    if ((firstNumber % i === 0) && (secondNumber % i === 0)) {
-      nod = i;
+    if ((x % i === 0) && (y % i === 0)) {
+      greatestCommonDivider = i;
       break;
     }
-  } return nod;
+  } return greatestCommonDivider;
 };
 
-const gameInfo = () => {
-  const firstNumber = randomNumber(min, max);
-  const secondNumber = randomNumber(min, max);
-  const questionExpression = `${firstNumber} ${secondNumber}`;
-  const getCorrectAnswer = solution(firstNumber, secondNumber);
-  const correctAnswer = getCorrectAnswer.toString();
-  return cons(questionExpression, correctAnswer);
+const getGameData = () => {
+  const firstNum = randomNumber(min, max);
+  const secondNum = randomNumber(min, max);
+  const questionExpression = `${firstNum} ${secondNum}`;
+  const correctAnswer = getSolution(firstNum, secondNum);
+  const correctAnswerString = correctAnswer.toString();
+  return cons(questionExpression, correctAnswerString);
 };
 
-export default () => bigGame(mission, gameInfo);
+export default () => bigGame(mission, getGameData);

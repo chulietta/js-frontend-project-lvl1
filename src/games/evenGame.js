@@ -9,14 +9,12 @@ const mission = 'Answer "yes" if the number is even, otherwise answer "no".';
 const min = 1;
 const max = 99;
 
-const isEven = (number) => number % 2 === 0;
+const isEven = (num) => num % 2 === 0;
 
-const getCorrectAnswer = (question) => (isEven(question) ? 'yes' : 'no');
-
-const gameInfo = () => {
-  const questionNumber = randomNumber(min, max);
-  const correctAnswer = getCorrectAnswer(questionNumber);
-  return cons(questionNumber, correctAnswer);
+const getGameData = () => {
+  const questionNum = randomNumber(min, max);
+  const correctAnswer = isEven(questionNum) ? 'yes' : 'no';
+  return cons(questionNum, correctAnswer);
 };
 
-export default () => bigGame(mission, gameInfo);
+export default () => bigGame(mission, getGameData);

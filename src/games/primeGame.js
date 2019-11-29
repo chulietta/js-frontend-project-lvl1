@@ -18,10 +18,10 @@ const isPrime = (number) => {
 
 const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
 
-const gameInfo = () => {
-  const questionNumber = randomNumber(min, max);
-  const correctAnswer = getCorrectAnswer(questionNumber);
-  return cons(questionNumber, correctAnswer);
+const getGameData = () => {
+  const questionNum = randomNumber(min, max);
+  const correctAnswer = getCorrectAnswer(questionNum);
+  return cons(questionNum, correctAnswer);
 };
 
-export default () => bigGame(mission, gameInfo);
+export default () => bigGame(mission, getGameData);

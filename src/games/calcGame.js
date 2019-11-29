@@ -9,7 +9,7 @@ const mission = 'What is the result of the expression?';
 const min = 1;
 const max = 99;
 
-const solution = (a, fn, b) => {
+const getSolution = (a, fn, b) => {
   let result;
   switch (fn) {
     case '+':
@@ -18,21 +18,24 @@ const solution = (a, fn, b) => {
     case '-':
       result = a - b;
       break;
-    default:
+    case '*':
       result = a * b;
+      break;
+    default:
+      result = null;
   } return result;
 };
 
 const operators = '+-*';
 
-const gameInfo = () => {
-  const firstNumber = randomNumber(min, max);
-  const secondNumber = randomNumber(min, max);
+const getGameData = () => {
+  const firstNum = randomNumber(min, max);
+  const secondNum = randomNumber(min, max);
   const randomFunction = operators[randomNumber(0, operators.length - 1)];
-  const questionExpression = `${firstNumber} ${randomFunction} ${secondNumber}`;
-  const getCorrectAnswer = solution(firstNumber, randomFunction, secondNumber);
-  const correctAnswer = getCorrectAnswer.toString();
-  return cons(questionExpression, correctAnswer);
+  const questionExpression = `${firstNum} ${randomFunction} ${secondNum}`;
+  const correctAnswer = getSolution(firstNum, randomFunction, secondNum);
+  const correctAnswerString = correctAnswer.toString();
+  return cons(questionExpression, correctAnswerString);
 };
 
-export default () => bigGame(mission, gameInfo);
+export default () => bigGame(mission, getGameData);
