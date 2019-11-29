@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import {
-  randomNum,
+  getRandomNum,
   startBigGame,
 }
   from '..';
@@ -29,9 +29,9 @@ const getSolution = (a, fn, b) => {
 const operators = '+-*';
 
 const getGameData = () => {
-  const firstNum = randomNum(min, max);
-  const secondNum = randomNum(min, max);
-  const randomFunction = operators[randomNum(0, operators.length - 1)];
+  const firstNum = getRandomNum(min, max);
+  const secondNum = getRandomNum(min, max);
+  const randomFunction = operators[getRandomNum(0, operators.length - 1)];
   const question = `${firstNum} ${randomFunction} ${secondNum}`;
   const correctAnswer = (getSolution(firstNum, randomFunction, secondNum)).toString();
   return cons(question, correctAnswer);

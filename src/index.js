@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-export const randomNum = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
+export const getRandomNum = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
 
 const numberOfCorrectAnswers = 3;
 

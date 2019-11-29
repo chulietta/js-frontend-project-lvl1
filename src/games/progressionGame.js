@@ -1,7 +1,7 @@
 import { cons } from '@hexlet/pairs';
 
 import {
-  randomNum,
+  getRandomNum,
   startBigGame,
 }
   from '..';
@@ -13,9 +13,9 @@ const minIndexOfHiddenElement = 0;
 const questionExpressionLength = 10;
 
 const getGameData = () => {
-  const firstNum = randomNum(min, max);
-  const step = randomNum(min, max);
-  const indexOfHiddenElement = randomNum(minIndexOfHiddenElement, questionExpressionLength - 1);
+  const firstNum = getRandomNum(min, max);
+  const step = getRandomNum(min, max);
+  const indexOfHiddenElement = getRandomNum(minIndexOfHiddenElement, questionExpressionLength - 1);
   const arr = [];
   for (let i = 0; i < questionExpressionLength; i += 1) {
     if (i === indexOfHiddenElement) {

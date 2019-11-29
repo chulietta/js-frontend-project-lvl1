@@ -1,7 +1,7 @@
 import { cons } from '@hexlet/pairs';
 
 import {
-  randomNum,
+  getRandomNum,
   startBigGame,
 }
   from '..';
@@ -19,7 +19,7 @@ const isPrime = (num) => {
 const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
 
 const getGameData = () => {
-  const question = randomNum(min, max);
+  const question = getRandomNum(min, max);
   const correctAnswer = getCorrectAnswer(question);
   return cons(question, correctAnswer);
 };
