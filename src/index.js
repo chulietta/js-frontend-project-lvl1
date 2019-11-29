@@ -15,8 +15,11 @@ export const bigGame = (mission, gameInfo) => {
     const correctAnswer = cdr(questionAndAnswer);
     console.log(`Question: ${question}`);
     const playerAnswer = readlineSync.question('Your answer: ');
-    if (playerAnswer !== correctAnswer) {
-      return console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`);
-    } console.log('Correct!');
-  } return console.log(`Congratulations, ${playerName}!`);
+    if (playerAnswer === correctAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`);
+      return;
+    }
+  } console.log(`Congratulations, ${playerName}!`);
 };
