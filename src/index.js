@@ -10,6 +10,7 @@ export const startBigGame = (mission, gameInfo) => {
   const playerName = readlineSync.question('May I have your name? ');
   const congratulationMessage = `Congratulations, ${playerName}!`;
   console.log(`Hello, ${playerName}!\n`);
+  let messageAfterUserAnswer = '';
 
   for (let i = 0; i < numberOfCorrectAnswers; i += 1) {
     const questionAndAnswer = gameInfo();
@@ -19,10 +20,12 @@ export const startBigGame = (mission, gameInfo) => {
     const playerAnswer = readlineSync.question('Your answer: ');
 
     if (playerAnswer === correctAnswer) {
-      console.log('Correct!');
+      messageAfterUserAnswer = 'Correct!';
+      console.log(`${messageAfterUserAnswer}`);
     } else {
-      console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`);
-      return;
+      messageAfterUserAnswer = `'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`;
+      console.log(`${messageAfterUserAnswer}`);
+      return messageAfterUserAnswer;
     }
   }
   console.log(`${congratulationMessage}`);
