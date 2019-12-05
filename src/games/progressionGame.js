@@ -1,28 +1,24 @@
 import { cons } from '@hexlet/pairs';
-
-import {
-  getRandomNum,
-  startBigGame,
-}
-  from '..';
+import startBigGame from '../index';
+import getRandomNumber from '../utils';
 
 const mission = 'What number is missing in the progression?';
 const min = 1;
 const max = 15;
-const minIndexOfHiddenElement = 0;
+const minHiddenElementIndex = 0;
 const questionExpressionLength = 10;
 
 const getGameData = () => {
-  const firstNum = getRandomNum(min, max);
-  const step = getRandomNum(min, max);
-  const indexOfHiddenElement = getRandomNum(minIndexOfHiddenElement, questionExpressionLength - 1);
-  const arr = [];
+  const progressionFirstNumber = getRandomNumber(min, max);
+  const step = getRandomNumber(min, max);
+  const hiddenElementIndex = getRandomNumber(minHiddenElementIndex, questionExpressionLength - 1);
+  const progression = [];
   for (let i = 0; i < questionExpressionLength; i += 1) {
-    if (i === indexOfHiddenElement) {
-      arr[i] = '..';
-    } else arr[i] = firstNum + (step * i);
-  } const question = arr.join(' ');
-  const correctAnswer = (firstNum + (step * indexOfHiddenElement)).toString();
+    if (i === hiddenElementIndex) {
+      progression[i] = '..';
+    } else progression[i] = progressionFirstNumber + (step * i);
+  } const question = progression.join(' ');
+  const correctAnswer = (progressionFirstNumber + (step * hiddenElementIndex)).toString();
   return cons(question, correctAnswer);
 };
 

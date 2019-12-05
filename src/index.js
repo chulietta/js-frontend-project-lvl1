@@ -1,19 +1,17 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-export const getRandomNum = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
+const correctAnswersCount = 3;
 
-const numberOfCorrectAnswers = 3;
-
-export const startBigGame = (mission, gameInfo) => {
+export default (mission, getGameData) => {
   console.log(`Welcome to the Brain Games!\n${mission}\n`);
   const playerName = readlineSync.question('May I have your name? ');
-  const congratulationMessage = `Congratulations, ${playerName}!`;
   console.log(`Hello, ${playerName}!\n`);
   let messageAfterUserAnswer = '';
+  const congratulationMessage = `Congratulations, ${playerName}!`;
 
-  for (let i = 0; i < numberOfCorrectAnswers; i += 1) {
-    const questionAndAnswer = gameInfo();
+  for (let i = 0; i < correctAnswersCount; i += 1) {
+    const questionAndAnswer = getGameData();
     const question = car(questionAndAnswer);
     const correctAnswer = cdr(questionAndAnswer);
     console.log(`Question: ${question}`);
@@ -25,9 +23,8 @@ export const startBigGame = (mission, gameInfo) => {
     } else {
       messageAfterUserAnswer = `'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`;
       console.log(`${messageAfterUserAnswer}`);
-      return messageAfterUserAnswer;
+      return;
     }
   }
   console.log(`${congratulationMessage}`);
-  return congratulationMessage;
 };
