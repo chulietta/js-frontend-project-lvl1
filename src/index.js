@@ -7,7 +7,6 @@ export default (mission, getGameData) => {
   console.log(`Welcome to the Brain Games!\n${mission}\n`);
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!\n`);
-  let messageAfterUserAnswer = '';
   const congratulationMessage = `Congratulations, ${playerName}!`;
 
   for (let i = 0; i < correctAnswersCount; i += 1) {
@@ -18,11 +17,9 @@ export default (mission, getGameData) => {
     const playerAnswer = readlineSync.question('Your answer: ');
 
     if (playerAnswer === correctAnswer) {
-      messageAfterUserAnswer = 'Correct!';
-      console.log(`${messageAfterUserAnswer}`);
+      console.log('Correct!');
     } else {
-      messageAfterUserAnswer = `'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`;
-      console.log(`${messageAfterUserAnswer}`);
+      console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${playerName}!`);
       return;
     }
   }

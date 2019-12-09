@@ -7,16 +7,15 @@ const min = 1;
 const max = 99;
 
 const isPrime = (num) => {
+  if (num <= 1) return false;
   for (let i = 2; i <= num / 2; i += 1) {
-    if ((num % i === 0) || (num <= 1)) return false;
+    if (num % i === 0) return false;
   } return true;
 };
 
-const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
-
 const getGameData = () => {
   const question = getRandomNumber(min, max);
-  const correctAnswer = getCorrectAnswer(question);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 
