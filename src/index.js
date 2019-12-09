@@ -7,7 +7,6 @@ export default (mission, getGameData) => {
   console.log(`Welcome to the Brain Games!\n${mission}\n`);
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!\n`);
-  const congratulationMessage = `Congratulations, ${playerName}!`;
 
   for (let i = 0; i < correctAnswersCount; i += 1) {
     const questionAndAnswer = getGameData();
@@ -23,5 +22,5 @@ export default (mission, getGameData) => {
       return;
     }
   }
-  console.log(`${congratulationMessage}`);
+  console.log(`Congratulations, ${playerName}!`);
 };
